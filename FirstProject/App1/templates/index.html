@@ -1,0 +1,55 @@
+{% comment %} Esta linea de codigo nos permite cargar archivos estaticos {% endcomment %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    {% comment %} Se debe importar el documento de la siguiente manera: {% endcomment %}
+    <link rel="stylesheet" href="{% static "styles.css" %}"/>
+  </head>
+  <body>
+    <header>
+      <h1>Frases</h1>
+    </header>
+
+    <nav>
+      <form action="">
+        <input type="text" placeholder="No implementado" />
+        <button>Buscar</button>
+      </form>
+    </nav>
+
+    <main>
+      <section>
+        <article>
+          {% for frase in datosFrases %}
+          <p>
+            {{ frase.cita }}
+            {% if frase.autor_fk %}
+            <br/> - {{ frase.autor_fk.nombre }}
+            {% endif %}
+          </p>
+          {% endfor %}
+        </article>
+      </section>
+
+      <aside>
+        <article>
+          <ul>
+            <h1>Autores</h1>
+            {% for autor in datosAutor %}
+            <li>{{ autor.nombre }}</li>
+            {% endfor %}
+          </ul>
+        </article>
+      </aside>
+    </main>
+    
+    <footer>
+      <a href="https://github.com/Miguel-CaAr?tab=overview&from=2024-04-01&to=2024-04-27">Github</a>
+      <script src="{% static "script.js" %}"></script>
+    </footer>
+  </body>
+</html>
