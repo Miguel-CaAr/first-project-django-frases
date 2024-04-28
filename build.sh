@@ -5,9 +5,8 @@ set -o errexit
 # Modify this line as needed for your package manager (pip, poetry, etc.)
 pip install -r requirements.txt
 
-ls
 # Convert static asset files
 python FirstProject/manage.py collectstatic --no-input
 
 # Apply any outstanding database migrations
-python manage.py migrate
+python FirstProject/manage.py migrate
