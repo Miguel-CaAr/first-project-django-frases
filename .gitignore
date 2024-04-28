@@ -11,3 +11,5 @@ __pycache__/
 *.pyo
 # Archivos de construcción
 build/
+#static creado por el comando collectstatic
+static/
