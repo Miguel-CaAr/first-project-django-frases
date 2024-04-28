@@ -1,0 +1,22 @@
+databases:
+  - name: FirstProject
+    plan: free
+    databaseName: FirstProject
+    user: admin
+
+services:
+  - type: web
+    plan: free
+    name: FirstProject
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "python -m gunicorn FirstProject.asgi:application -k uvicorn.workers.UvicornWorker"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: FirstProject
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
