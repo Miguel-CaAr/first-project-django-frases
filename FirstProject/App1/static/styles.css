@@ -17,7 +17,7 @@ header {
   top: 0%;
   background-color: green;
   color: #fff;
-  padding: 20px;
+  padding: 10px;
   text-align: center;
 }
 
@@ -41,6 +41,21 @@ section {
 
 aside {
   width: 30%;
+  display: flex;
+}
+
+ul {
+  padding: 0px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+li {
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
 }
 
 form {
@@ -75,6 +90,7 @@ article {
   padding: 20px;
   border: 1px solid #ced4da;
   border-radius: 4px;
+  overflow: auto;
 }
 
 p {
@@ -96,4 +112,19 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
+}
+
+@media (width < 550px){
+  main {
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+  }
+
+  section {
+    width: 100%;
+  }
+
+  aside {
+    width: 100%;
+  }
 }
