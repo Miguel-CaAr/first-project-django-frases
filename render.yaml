@@ -1,22 +1,11 @@
-databases:
-  - name: FirstProject
-    plan: free
-    databaseName: FirstProject
-    user: admin
-
+# Exported from Render on 2024-04-28T04:38:51Z
 services:
-  - type: web
-    plan: free
-    name: FirstProject
-    runtime: python
-    buildCommand: "./build.sh"
-    startCommand: "python -m gunicorn FirstProject.asgi:application -k uvicorn.workers.UvicornWorker"
-    envVars:
-      - key: DATABASE_URL
-        fromDatabase:
-          name: FirstProject
-          property: connectionString
-      - key: SECRET_KEY
-        generateValue: true
-      - key: WEB_CONCURRENCY
-        value: 4
+- type: web
+  name: first-project-django-frases
+  runtime: python
+  repo: https://github.com/Miguel-CaAr/first-project-django-frases
+  plan: free
+  region: oregon
+  buildCommand: ./build.sh
+  startCommand: gunicorn FirstProject.wsgi
+version: "1"
